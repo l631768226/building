@@ -79,6 +79,7 @@ public class StreetController {
         return traceService.processStInfo(reqData.getData());
     }
 
+    
     @RequestMapping(value = "/stSearch", method = RequestMethod.POST)
     public RstData<PathInfo> processStSearch(@RequestBody ReqData<TraceInfoReq> reqData){
         return traceService.processStSearch(reqData.getData());
