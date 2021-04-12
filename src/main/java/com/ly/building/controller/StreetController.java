@@ -29,11 +29,6 @@ public class StreetController {
         return traceService.processInit(request);
     }
 
-//    @RequestMapping(value = "/list", method = RequestMethod.POST)
-//    public RstData<TraceResult> processList(@RequestBody ReqData<TraceRule> reqData){
-//        return traceService.processList(reqData.getData());
-//    }
-
     /**
      * 根据人员id和出行方式查询路径信息
      * @param reqData
