@@ -20,7 +20,7 @@ public class CustomCorsConfiguration
             public void addCorsMappings(CorsRegistry registry)
             {
                 // 设置了可以被跨域访问的路径和可以被哪些主机跨域访问
-                registry.addMapping("/**").allowedOrigins("*").maxAge(3600);
+                registry.addMapping("/**").allowedOrigins("*").maxAge(3600).allowCredentials(false);
             }
             
             @Override

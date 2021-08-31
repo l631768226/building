@@ -2,7 +2,6 @@ package com.ly.building.common;
 
 import com.ly.building.model.FormParam;
 import org.apache.commons.codec.binary.Base64;
-import sun.misc.BASE64Encoder;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -10,7 +9,6 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -201,8 +199,7 @@ public class CommonMethod {
             e.printStackTrace();
         }
         // 加密
-        BASE64Encoder encoder = new BASE64Encoder();
-        return encoder.encode(data);
+        return Base64.encodeBase64String(data);
     }
 
     public static String fileToBase64(File file) throws IOException {

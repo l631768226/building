@@ -1046,13 +1046,13 @@ public class HotMapService {
                 while ((lineTxt = bufferedReader.readLine()) != null) {
 //                        System.out.println(lineTxt);
                     String dataS[] = lineTxt.split(",");
-                    if ("year_time".equals(dataS[0])) {
+                    if ("user_id".equals(dataS[0])) {
                         continue;
                     } else {
-                        String real = dataS[7];
-                        String pred = dataS[8];
-                        Double lat = Double.valueOf(dataS[5]);
-                        Double lng = Double.valueOf(dataS[4]);
+                        String real = dataS[12];
+                        String pred = dataS[11];
+                        Double lat = Double.valueOf(dataS[2]);
+                        Double lng = Double.valueOf(dataS[1]);
 //                        ActiveRes activeRes = new ActiveRes();
 //                        activeRes.setUserId(userId);
 //                        activeRes.setYearTime(dataS[0]);
@@ -1067,8 +1067,8 @@ public class HotMapService {
 //                        activeResList.add(activeRes);
 
                         MapResult mapResult = new MapResult();
-                        mapResult.setLat(dataS[5]);
-                        mapResult.setLon(dataS[4]);
+                        mapResult.setLat(dataS[2]);
+                        mapResult.setLon(dataS[1]);
 
                         mapResult.setLabelStr(real);
                         mapResult.setPred(pred);
@@ -1170,6 +1170,16 @@ public class HotMapService {
                         mapResult.setLabelStr(real);
                         mapResult.setPred(pred);
 
+                        String hotValue = dataS[3];
+
+                        mapResult.setHotValue(hotValue);
+
+                        String vector = dataS[7];
+                        List<String> vectorList = Arrays.asList(vector.split(" "));
+//                        vectorList.remove("");
+                        mapResult.setVectorList(vectorList);
+                        mapResult.setVector(vector);
+
                         allResult.add(mapResult);
                         if(real.equals(pred)){
                             rightResult.add(mapResult);
@@ -1227,7 +1237,14 @@ public class HotMapService {
         userCountList.sort(Comparator.comparing(UserCount::getCount));
         Collections.reverse(userCountList);
 
-        zbActRst.setUserCounts(userCountList.subList(0,3));
+        //这里需要展示排名前三的用户 不足三个的展示全部
+        int userCount = userCountList.size();
+        if(userCount > 3){
+            zbActRst.setUserCounts(userCountList.subList(0,3));
+        }else{
+            zbActRst.setUserCounts(userCountList);
+        }
+
         rstData.setCode(1);
         rstData.setData(zbActRst);
         return  rstData;

@@ -1,5 +1,7 @@
 package com.ly.building.model;
 
+import java.util.List;
+
 public class UserCount {
 
     private String label;

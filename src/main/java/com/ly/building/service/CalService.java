@@ -6,7 +6,6 @@ import com.ly.building.common.CommonMethod;
 import com.ly.building.mapper.CalInfoDao;
 import com.ly.building.model.*;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.python.antlr.ast.For;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import java.io.*;
-import java.text.Normalizer;
 import java.util.*;
 
 @Service

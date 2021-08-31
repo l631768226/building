@@ -1,5 +1,7 @@
 package com.ly.building.model;
 
+import java.util.List;
+
 public class MapResult {
 
     private Geo geo;
@@ -27,6 +29,36 @@ public class MapResult {
     private String poi;
 
     private String pred;
+
+    private String hotValue;
+
+    private List<String> vectorList;
+
+    private String vector;
+
+    public String getHotValue() {
+        return hotValue;
+    }
+
+    public void setHotValue(String hotValue) {
+        this.hotValue = hotValue;
+    }
+
+    public String getVector() {
+        return vector;
+    }
+
+    public void setVector(String vector) {
+        this.vector = vector;
+    }
+
+    public List<String> getVectorList() {
+        return vectorList;
+    }
+
+    public void setVectorList(List<String> vectorList) {
+        this.vectorList = vectorList;
+    }
 
     public String getPred() {
         return pred;
