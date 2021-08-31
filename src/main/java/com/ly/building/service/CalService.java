@@ -68,7 +68,6 @@ public class CalService {
     @Value("${cal.qnResultPath}")
     String qnResultPath;
 
-
     @Autowired
     private CalInfoDao calInfoDao;
 
